@@ -35,6 +35,7 @@ export function PromptOutput({ prompt }: PromptOutputProps) {
 
   return (
     <div className="space-y-3">
+      <div className="h-px bg-gradient-to-r from-violet-500/50 via-indigo-500/50 to-transparent rounded-full" />
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-500">
           Generated Prompt

@@ -31,18 +31,18 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section className="bg-white py-20 px-4">
+    <section className="bg-gray-950 py-20 px-4">
       <div className="mx-auto max-w-2xl space-y-8">
         <div className="text-center space-y-2">
-          <h2 className="text-3xl font-bold text-gray-900">Frequently asked questions</h2>
+          <h2 className="text-3xl font-bold text-white">Frequently asked questions</h2>
         </div>
 
         <div className="space-y-3">
           {faqs.map((faq, i) => (
-            <div key={i} className="rounded-xl border border-gray-200 overflow-hidden">
+            <div key={i} className="rounded-xl border border-gray-800 bg-gray-900 overflow-hidden">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between px-5 py-4 text-left font-medium text-gray-900 hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between px-5 py-4 text-left font-medium text-white hover:bg-gray-800/50 transition-colors"
               >
                 {faq.q}
                 <svg
@@ -53,7 +53,7 @@ export function Faq() {
                 </svg>
               </button>
               {open === i && (
-                <div className="px-5 pb-4 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
+                <div className="px-5 pb-4 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-3">
                   {faq.a}
                 </div>
               )}

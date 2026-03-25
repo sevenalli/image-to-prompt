@@ -59,19 +59,19 @@ const plans = [
 
 export function LandingPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-950">
       {/* Nav */}
-      <nav className="sticky top-0 z-20 border-b border-gray-100 bg-white/90 backdrop-blur-sm">
+      <nav className="sticky top-0 z-20 border-b border-gray-800 bg-gray-950/90 backdrop-blur-sm">
         <div className="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <span className="text-xl">🖼️</span>
-            <span className="font-bold text-gray-900">Image <span className="text-violet-600">→</span> Prompt</span>
+            <span className="font-bold text-white">Image <span className="text-violet-400">→</span> Prompt</span>
           </Link>
           <div className="flex items-center gap-4">
-            <a href="#pricing" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Pricing</a>
+            <a href="#pricing" className="text-sm text-gray-400 hover:text-white transition-colors">Pricing</a>
             <Link
               to="/app"
-              className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 transition-colors"
+              className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-500 transition-colors"
             >
               Try free
             </Link>
@@ -85,11 +85,11 @@ export function LandingPage() {
         <Features />
 
         {/* Pricing */}
-        <section id="pricing" className="bg-gray-50 py-20 px-4">
+        <section id="pricing" className="bg-gray-900/50 py-20 px-4">
           <div className="mx-auto max-w-5xl space-y-12">
             <div className="text-center space-y-3">
-              <h2 className="text-3xl font-bold text-gray-900">Simple, transparent pricing</h2>
-              <p className="text-gray-500">Start free. Upgrade when you need more.</p>
+              <h2 className="text-3xl font-bold text-white">Simple, transparent pricing</h2>
+              <p className="text-gray-400">Start free. Upgrade when you need more.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
@@ -98,9 +98,9 @@ export function LandingPage() {
               ))}
             </div>
 
-            <p className="text-center text-sm text-gray-400">
+            <p className="text-center text-sm text-gray-500">
               Payments securely handled by{' '}
-              <a href="https://polar.sh" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+              <a href="https://polar.sh" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">
                 Polar
               </a>
               {' '}· Cancel anytime · VAT handled automatically
@@ -112,16 +112,16 @@ export function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 bg-white py-10 px-4">
-        <div className="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+      <footer className="border-t border-gray-800 bg-gray-950 py-10 px-4">
+        <div className="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
           <div className="flex items-center gap-2">
             <span>🖼️</span>
-            <span className="font-semibold text-gray-600">Image → Prompt</span>
+            <span className="font-semibold text-gray-300">Image → Prompt</span>
           </div>
           <p>© {new Date().getFullYear()} Image-to-Prompt. All rights reserved.</p>
           <div className="flex gap-4">
-            <Link to="/app" className="hover:text-gray-600 transition-colors">App</Link>
-            <a href="#pricing" className="hover:text-gray-600 transition-colors">Pricing</a>
+            <Link to="/app" className="hover:text-gray-300 transition-colors">App</Link>
+            <a href="#pricing" className="hover:text-gray-300 transition-colors">Pricing</a>
           </div>
         </div>
       </footer>

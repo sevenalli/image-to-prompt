@@ -16,10 +16,10 @@ export function PricingCard({ name, price, period, limit, features, highlighted,
 
   return (
     <div className={[
-      'relative flex flex-col rounded-2xl p-8 space-y-6 border transition-shadow',
+      'relative flex flex-col rounded-2xl p-8 space-y-6 border transition-all',
       highlighted
-        ? 'border-violet-500 bg-white shadow-xl shadow-violet-100 scale-105'
-        : 'border-gray-200 bg-white hover:shadow-md',
+        ? 'border-violet-500 bg-gray-900 shadow-xl shadow-violet-500/10 scale-105'
+        : 'border-gray-800 bg-gray-900 hover:border-gray-700',
     ].join(' ')}>
       {highlighted && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2">
@@ -30,17 +30,17 @@ export function PricingCard({ name, price, period, limit, features, highlighted,
       )}
 
       <div className="space-y-1">
-        <h3 className="text-lg font-bold text-gray-900">{name}</h3>
+        <h3 className="text-lg font-bold text-white">{name}</h3>
         <div className="flex items-end gap-1">
-          <span className="text-4xl font-extrabold text-gray-900">{price}</span>
-          {period && <span className="text-gray-500 mb-1">/{period}</span>}
+          <span className="text-4xl font-extrabold text-white">{price}</span>
+          {period && <span className="text-gray-400 mb-1">/{period}</span>}
         </div>
-        <p className="text-sm text-gray-500">{limit}</p>
+        <p className="text-sm text-gray-400">{limit}</p>
       </div>
 
       <ul className="space-y-2.5 flex-1">
         {features.map((f) => (
-          <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
+          <li key={f} className="flex items-start gap-2 text-sm text-gray-300">
             <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-violet-500" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -57,8 +57,8 @@ export function PricingCard({ name, price, period, limit, features, highlighted,
           className={[
             'block w-full rounded-xl px-6 py-3 text-center font-semibold transition-colors',
             highlighted
-              ? 'bg-violet-600 text-white hover:bg-violet-700'
-              : 'border border-gray-200 text-gray-700 hover:border-violet-300 hover:text-violet-600',
+              ? 'bg-violet-600 text-white hover:bg-violet-500'
+              : 'border border-gray-700 text-gray-300 hover:border-violet-500/50 hover:text-white',
           ].join(' ')}
         >
           {ctaLabel}
@@ -69,8 +69,8 @@ export function PricingCard({ name, price, period, limit, features, highlighted,
           className={[
             'block w-full rounded-xl px-6 py-3 text-center font-semibold transition-colors',
             highlighted
-              ? 'bg-violet-600 text-white hover:bg-violet-700'
-              : 'border border-gray-200 text-gray-700 hover:border-violet-300 hover:text-violet-600',
+              ? 'bg-violet-600 text-white hover:bg-violet-500'
+              : 'border border-gray-700 text-gray-300 hover:border-violet-500/50 hover:text-white',
           ].join(' ')}
         >
           {ctaLabel}

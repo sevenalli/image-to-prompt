@@ -30,14 +30,14 @@ export function DemoEmbed() {
   }
 
   return (
-    <section className="bg-gray-50 py-20 px-4">
+    <section className="bg-gray-950 py-20 px-4">
       <div className="mx-auto max-w-2xl space-y-6">
         <div className="text-center space-y-2">
-          <h2 className="text-3xl font-bold text-gray-900">Try it right now</h2>
-          <p className="text-gray-500">No sign-up needed for your first 3 analyses.</p>
+          <h2 className="text-3xl font-bold text-white">Try it right now</h2>
+          <p className="text-gray-400">No sign-up needed for your first 3 analyses.</p>
         </div>
 
-        <div className="rounded-2xl bg-white p-6 shadow-sm border border-gray-200 space-y-6">
+        <div className="rounded-2xl bg-gray-900 p-6 border border-gray-800 space-y-6">
           <ImageDropzone
             onFileSelected={handleFile}
             disabled={status === 'loading'}

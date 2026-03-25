@@ -66,9 +66,9 @@ export function ImageDropzone({ onFileSelected, disabled }: ImageDropzoneProps) 
         className={[
           'relative flex flex-col items-center justify-center gap-4 rounded-2xl border-2 border-dashed p-10 cursor-pointer transition-colors select-none',
           dragOver
-            ? 'border-violet-500 bg-violet-50'
-            : 'border-gray-300 hover:border-violet-400 hover:bg-gray-50',
-          disabled ? 'opacity-50 pointer-events-none' : '',
+            ? 'border-violet-500 bg-violet-500/10'
+            : 'border-gray-300 hover:border-violet-400 hover:bg-violet-500/5',
+          disabled ? 'opacity-60 cursor-not-allowed pointer-events-none' : '',
         ].join(' ')}
       >
         <input

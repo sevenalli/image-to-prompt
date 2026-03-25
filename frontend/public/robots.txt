@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://image-to-prompt-17m.pages.dev/sitemap.xml

@@ -4,7 +4,109 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <meta name="theme-color" content="#0a0a0f" />
+
+    <title>Image to Prompt — Reverse-Engineer Any Image into an AI Prompt</title>
+    <meta name="description" content="Upload any image and instantly get a detailed AI-generated text prompt to recreate it. Free online tool powered by edge AI. No sign-up required." />
+    <link rel="canonical" href="https://image-to-prompt-17m.pages.dev/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://image-to-prompt-17m.pages.dev/" />
+    <meta property="og:title" content="Image to Prompt — Reverse-Engineer Any Image into an AI Prompt" />
+    <meta property="og:description" content="Upload any image and instantly get a detailed AI-generated text prompt to recreate it. Free online tool powered by edge AI." />
+    <meta property="og:site_name" content="Image to Prompt" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Image to Prompt — Reverse-Engineer Any Image into an AI Prompt" />
+    <meta name="twitter:description" content="Upload any image and instantly get a detailed AI-generated text prompt to recreate it. Free online tool powered by edge AI." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Preconnects -->
+    <link rel="dns-prefetch" href="https://image-to-prompt-worker.salah-halli-2018.workers.dev" />
+
+    <!-- Structured Data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Image to Prompt",
+      "description": "Upload any image and instantly get a detailed AI-generated text prompt to recreate it. Powered by edge AI with zero server latency.",
+      "url": "https://image-to-prompt-17m.pages.dev/",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web",
+      "offers": [
+        {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "name": "Starter",
+          "description": "10 analyses per month"
+        },
+        {
+          "@type": "Offer",
+          "price": "9",
+          "priceCurrency": "USD",
+          "name": "Pro",
+          "description": "200 analyses per month with history"
+        },
+        {
+          "@type": "Offer",
+          "price": "29",
+          "priceCurrency": "USD",
+          "name": "Studio",
+          "description": "Unlimited analyses with API access"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Image to Prompt work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Upload any image and our AI vision model analyzes the visual elements, style, composition, and subject matter to generate a detailed text prompt that could recreate a similar image."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Image to Prompt free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! The Starter plan is free and includes 10 analyses per month. No credit card required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What image formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JPEG, PNG, WebP, and GIF formats are supported, with a maximum file size of 4 MB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image data stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Images are processed on Cloudflare's edge network and never stored. Only the generated text prompt is saved to your history if you have a Pro or Studio plan."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
