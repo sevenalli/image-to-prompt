@@ -30,8 +30,8 @@ export async function getOrCreateUser(db: D1Database, userId: string): Promise<U
 
   return {
     id: userId,
-    ls_customer_id: null,
-    ls_subscription_id: null,
+    polar_customer_id: null,
+    polar_subscription_id: null,
     tier: 'starter',
     analyses_used: 0,
     analyses_reset_at: resetAt,
@@ -60,10 +60,10 @@ export async function incrementUsage(db: D1Database, userId: string): Promise<vo
     .run()
 }
 
-export async function saveAnalysis(db: D1Database, userId: string, promptLength: number): Promise<void> {
+export async function saveAnalysis(db: D1Database, userId: string, promptLength: number, promptText?: string): Promise<void> {
   const id = crypto.randomUUID()
   await db
-    .prepare('INSERT INTO analyses (id, user_id, prompt_length) VALUES (?, ?, ?)')
-    .bind(id, userId, promptLength)
+    .prepare('INSERT INTO analyses (id, user_id, prompt_length, prompt_text) VALUES (?, ?, ?, ?)')
+    .bind(id, userId, promptLength, promptText ?? null)
     .run()
 }

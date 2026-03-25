@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS analyses (
   id            TEXT PRIMARY KEY,
   user_id       TEXT NOT NULL REFERENCES users(id),
   prompt_length INTEGER NOT NULL,
+  prompt_text   TEXT,
   created_at    TEXT NOT NULL DEFAULT (datetime('now'))
 );
 

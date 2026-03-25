@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
 import { useUsage } from '../hooks/useUsage'
@@ -12,6 +12,11 @@ export function SettingsPage() {
   const [newKeyName, setNewKeyName] = useState('')
   const [revealedKey, setRevealedKey] = useState<string | null>(null)
   const [keysLoaded, setKeysLoaded] = useState(false)
+
+  // Auto-load keys for Studio users
+  useEffect(() => {
+    if (tier === 'studio' && !keysLoaded) loadKeys()
+  }, [tier])
 
   async function upgrade(plan: 'pro' | 'studio') {
     setUpgrading(true)
@@ -41,7 +46,8 @@ export function SettingsPage() {
     setNewKeyName('')
   }
 
-  async function revokeKey(id: string) {
+  async function revokeKey(id: string, name: string) {
+    if (!confirm(`Revoke API key "${name}"? Any integrations using this key will stop working.`)) return
     await apiFetch(`/api/keys/${id}`, { method: 'DELETE' })
     setKeys((k) => k.filter((k) => k.id !== id))
   }
@@ -103,15 +109,17 @@ export function SettingsPage() {
                     <button
                       onClick={() => upgrade('pro')}
                       disabled={upgrading}
-                      className="rounded-xl bg-violet-600 px-5 py-2 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50 transition-colors"
+                      className="rounded-xl bg-violet-600 px-5 py-2 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50 transition-colors flex items-center gap-2"
                     >
+                      {upgrading ? <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" /> : null}
                       Upgrade to Pro — $9/mo
                     </button>
                     <button
                       onClick={() => upgrade('studio')}
                       disabled={upgrading}
-                      className="rounded-xl border border-gray-200 px-5 py-2 text-sm font-semibold text-gray-700 hover:border-violet-300 hover:text-violet-600 disabled:opacity-50 transition-colors"
+                      className="rounded-xl border border-gray-200 px-5 py-2 text-sm font-semibold text-gray-700 hover:border-violet-300 hover:text-violet-600 disabled:opacity-50 transition-colors flex items-center gap-2"
                     >
+                      {upgrading ? <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-gray-400 border-t-transparent" /> : null}
                       Upgrade to Studio — $29/mo
                     </button>
                   </div>
@@ -156,7 +164,7 @@ export function SettingsPage() {
                         <p className="font-medium text-gray-900">{k.name}</p>
                         <p className="text-xs text-gray-400">Created {new Date(k.createdAt).toLocaleDateString()}</p>
                       </div>
-                      <button onClick={() => revokeKey(k.id)} className="text-red-500 hover:text-red-700 text-xs font-medium">Revoke</button>
+                      <button onClick={() => revokeKey(k.id, k.name)} className="text-red-500 hover:text-red-700 text-xs font-medium">Revoke</button>
                     </div>
                   ))}
                 </div>

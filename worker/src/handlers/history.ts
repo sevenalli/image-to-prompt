@@ -17,9 +17,9 @@ export async function handleHistory(userId: string, env: Env): Promise<Response>
   }
 
   const { results } = await env.DB
-    .prepare('SELECT id, prompt_length, created_at FROM analyses WHERE user_id = ? ORDER BY created_at DESC LIMIT 50')
+    .prepare('SELECT id, prompt_length, prompt_text, created_at FROM analyses WHERE user_id = ? ORDER BY created_at DESC LIMIT 50')
     .bind(userId)
-    .all<{ id: string; prompt_length: number; created_at: string }>()
+    .all<{ id: string; prompt_length: number; prompt_text: string | null; created_at: string }>()
 
   return new Response(JSON.stringify({ analyses: results }), {
     headers: { 'Content-Type': 'application/json', ...CORS_HEADERS },

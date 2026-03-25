@@ -10,14 +10,19 @@ export function ImageDropzone({ onFileSelected, disabled }: ImageDropzoneProps) 
   const inputRef = useRef<HTMLInputElement>(null)
   const [preview, setPreview] = useState<string | null>(null)
   const [dragOver, setDragOver] = useState(false)
-  const [typeError, setTypeError] = useState(false)
+  const [fileError, setFileError] = useState<string | null>(null)
 
   function handleFile(file: File) {
     if (!validateFileType(file)) {
-      setTypeError(true)
+      setFileError('Unsupported file type. Supported: JPEG, PNG, WebP, GIF.')
       return
     }
-    setTypeError(false)
+    const MAX_SIZE = 4 * 1024 * 1024 // 4 MB
+    if (file.size > MAX_SIZE) {
+      setFileError(`Image too large (${(file.size / 1024 / 1024).toFixed(1)} MB). Max 4 MB.`)
+      return
+    }
+    setFileError(null)
     setPreview(URL.createObjectURL(file))
     onFileSelected(file)
   }
@@ -105,10 +110,8 @@ export function ImageDropzone({ onFileSelected, disabled }: ImageDropzoneProps) 
         )}
       </div>
 
-      {typeError && (
-        <p className="text-sm text-red-500 text-center">
-          Unsupported file type. Please upload a JPEG, PNG, WebP, or GIF.
-        </p>
+      {fileError && (
+        <p className="text-sm text-red-500 text-center">{fileError}</p>
       )}
     </div>
   )

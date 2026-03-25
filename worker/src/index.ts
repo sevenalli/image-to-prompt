@@ -56,7 +56,7 @@ export default {
         const json = await clone.json() as { success: boolean; prompt?: string }
         if (json.success && json.prompt) {
           await incrementUsage(env.DB, userId)
-          await saveAnalysis(env.DB, userId, json.prompt.length)
+          await saveAnalysis(env.DB, userId, json.prompt.length, json.prompt)
         }
       }
 

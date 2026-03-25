@@ -68,7 +68,7 @@ export function LandingPage() {
             <span className="font-bold text-gray-900">Image <span className="text-violet-600">→</span> Prompt</span>
           </Link>
           <div className="flex items-center gap-4">
-            <a href="#pricing" className="hidden sm:block text-sm text-gray-500 hover:text-gray-900 transition-colors">Pricing</a>
+            <a href="#pricing" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Pricing</a>
             <Link
               to="/app"
               className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 transition-colors"
@@ -120,9 +120,8 @@ export function LandingPage() {
           </div>
           <p>© {new Date().getFullYear()} Image-to-Prompt. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-gray-600 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-gray-600 transition-colors">Terms</a>
             <Link to="/app" className="hover:text-gray-600 transition-colors">App</Link>
+            <a href="#pricing" className="hover:text-gray-600 transition-colors">Pricing</a>
           </div>
         </div>
       </footer>

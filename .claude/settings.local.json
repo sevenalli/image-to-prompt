@@ -11,7 +11,19 @@
       "Bash(taskkill /F /IM node.exe /T)",
       "Bash(curl -s -X POST https://image-to-prompt-worker.salah-halli-2018.workers.dev/api/analyze -H \"Content-Type: application/json\" -d '{\"\"image\"\":\"\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI6QAAAABJRU5ErkJggg==\"\",\"\"mimeType\"\":\"\"image/png\"\"}')",
       "Bash(curl -s -X POST https://image-to-prompt-worker.salah-halli-2018.workers.dev/api/analyze -H \"Content-Type: application/json\" -d '{\"\"image\"\":\"\"iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAABmJLR0QA/wD/AP+gvaeTAAAADUlEQVQI12NgYGD4DwABBAEAWjR/WQAAAABJRU5ErkJggg==\"\",\"\"mimeType\"\":\"\"image/png\"\"}')",
-      "Bash(ls d:/saas/frontend/.env*)"
+      "Bash(ls d:/saas/frontend/.env*)",
+      "Bash(CLOUDFLARE_API_TOKEN=cfut_9NaQtarYbXf0IYmsiCSa47CwvdDNKj9AwQQ6XHz8b469133b echo \"polar_oat_Ooc9LiJKQcNvADBm4vBEQCKFeiAtcqgviNKm64W0VPm\")",
+      "Bash(export CLOUDFLARE_API_TOKEN=cfut_9NaQtarYbXf0IYmsiCSa47CwvdDNKj9AwQQ6XHz8b469133b)",
+      "Bash(export CLOUDFLARE_API_TOKEN=cfat_zKU2nqpmyJU7O4he05bXAWyztOKa7gFfkFo0OjRL914977e6)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)",
+      "Bash(curl -s \"https://api.polar.sh/v1/products?organization_id=reversoc&limit=10\" -H \"Authorization: Bearer polar_oat_ColHGK5ucCfIbq7AkQncUcT15gjf1183kRryi4WDe38\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s \"https://api.polar.sh/v1/products\" -H \"Authorization: Bearer polar_oat_ColHGK5ucCfIbq7AkQncUcT15gjf1183kRryi4WDe38\")",
+      "Bash(curl -v \"https://api.polar.sh/v1/products\" -H \"Authorization: Bearer polar_oat_ColHGK5ucCfIbq7AkQncUcT15gjf1183kRryi4WDe38\")"
     ]
   }
 }

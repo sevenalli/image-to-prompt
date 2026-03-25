@@ -50,10 +50,36 @@ export function AppPage() {
             disabled={status === 'loading'}
           />
           {status === 'loading' && <LoadingSpinner />}
-          {status === 'success' && prompt && <PromptOutput prompt={prompt} />}
+          {status === 'success' && prompt && (
+            <>
+              <PromptOutput prompt={prompt} />
+              <button
+                onClick={reset}
+                className="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-semibold text-gray-600 hover:border-violet-300 hover:text-violet-600 transition-colors"
+              >
+                New analysis
+              </button>
+            </>
+          )}
           {status === 'error' && errorMessage && (
-            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-              <span className="font-semibold">Error: </span>{errorMessage}
+            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 space-y-2">
+              {errorMessage.includes('quota') || errorMessage.includes('Quota') ? (
+                <>
+                  <p className="font-semibold">You've hit your monthly limit</p>
+                  <p>Upgrade to Pro for 200 analyses/month or Studio for unlimited.</p>
+                  <div className="flex gap-3 pt-1">
+                    <Link to="/settings" className="rounded-lg bg-violet-600 px-4 py-1.5 text-sm font-semibold text-white hover:bg-violet-700 transition-colors">
+                      Upgrade now
+                    </Link>
+                    <button onClick={reset} className="text-sm text-red-600 hover:underline">Dismiss</button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p><span className="font-semibold">Error: </span>{errorMessage}</p>
+                  <button onClick={reset} className="text-sm text-red-600 hover:underline">Try again</button>
+                </>
+              )}
             </div>
           )}
         </div>
