@@ -5,10 +5,11 @@ import { Features } from '../components/landing/Features'
 import { PricingCard } from '../components/landing/PricingCard'
 import { Faq } from '../components/landing/Faq'
 
-// Lemon Squeezy checkout URLs — fill these in after creating your store
-// https://app.lemonsqueezy.com → Products → share checkout link
-const LS_PRO_URL = import.meta.env.VITE_LS_PRO_URL ?? '#pricing'
-const LS_STUDIO_URL = import.meta.env.VITE_LS_STUDIO_URL ?? '#pricing'
+// Polar checkout URLs — optionally set these to direct Polar checkout links
+// polar.sh → Products → Checkout Links → copy link
+// If not set, upgrade buttons redirect to /app where users can upgrade from Settings
+const POLAR_PRO_URL = import.meta.env.VITE_POLAR_PRO_URL ?? '/app'
+const POLAR_STUDIO_URL = import.meta.env.VITE_POLAR_STUDIO_URL ?? '/app'
 
 const plans = [
   {
@@ -37,7 +38,7 @@ const plans = [
     ],
     highlighted: true,
     ctaLabel: 'Upgrade to Pro',
-    ctaHref: LS_PRO_URL,
+    ctaHref: POLAR_PRO_URL,
   },
   {
     name: 'Studio',
@@ -52,7 +53,7 @@ const plans = [
       'Bulk processing support',
     ],
     ctaLabel: 'Upgrade to Studio',
-    ctaHref: LS_STUDIO_URL,
+    ctaHref: POLAR_STUDIO_URL,
   },
 ]
 
@@ -99,8 +100,8 @@ export function LandingPage() {
 
             <p className="text-center text-sm text-gray-400">
               Payments securely handled by{' '}
-              <a href="https://lemonsqueezy.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
-                Lemon Squeezy
+              <a href="https://polar.sh" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                Polar
               </a>
               {' '}· Cancel anytime · VAT handled automatically
             </p>

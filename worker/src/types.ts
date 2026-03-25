@@ -2,11 +2,10 @@ export interface Env {
   AI: Ai
   DB: D1Database
   CLERK_JWKS_URL: string
-  LS_API_KEY: string          // Lemon Squeezy API key
-  LS_STORE_ID: string         // Lemon Squeezy store ID
-  LS_PRO_VARIANT_ID: string   // Variant ID for Pro plan
-  LS_STUDIO_VARIANT_ID: string // Variant ID for Studio plan
-  LS_WEBHOOK_SECRET: string   // Lemon Squeezy webhook signing secret
+  POLAR_ACCESS_TOKEN: string      // Polar.sh API access token
+  POLAR_PRO_PRODUCT_ID: string    // Price ID for Pro plan
+  POLAR_STUDIO_PRODUCT_ID: string // Price ID for Studio plan
+  POLAR_WEBHOOK_SECRET: string    // Polar webhook signing secret (base64)
 }
 
 export interface AnalyzeRequest {
@@ -27,8 +26,8 @@ export interface ErrorResponse {
 
 export interface UserRow {
   id: string
-  ls_customer_id: string | null
-  ls_subscription_id: string | null
+  polar_customer_id: string | null
+  polar_subscription_id: string | null
   tier: 'starter' | 'pro' | 'studio'
   analyses_used: number
   analyses_reset_at: string

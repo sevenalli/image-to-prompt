@@ -2,7 +2,7 @@ import { Env } from './types'
 import { handleAnalyze } from './handlers/analyze'
 import { handleUsage } from './handlers/usage'
 import { handleCheckout } from './handlers/checkout'
-import { handleLsWebhook } from './handlers/lsWebhook'
+import { handlePolarWebhook } from './handlers/polarWebhook'
 import { handleApiKeys } from './handlers/apiKeys'
 import { handleHistory } from './handlers/history'
 import { authMiddleware } from './middleware/auth'
@@ -31,9 +31,9 @@ export default {
     const url = new URL(request.url)
     const path = url.pathname
 
-    // ── Stripe/LS webhook — no auth, signature-verified internally
-    if (path === '/api/webhooks/lemonsqueezy') {
-      return handleLsWebhook(request, env)
+    // ── Polar webhook — no auth, signature-verified internally
+    if (path === '/api/webhooks/polar') {
+      return handlePolarWebhook(request, env)
     }
 
     // ── Auth-required routes

@@ -1,5 +1,5 @@
 import { Env } from '../types'
-import { createCheckout } from '../lib/lemonsqueezy'
+import { createCheckout } from '../lib/polar'
 import { getOrCreateUser } from '../lib/d1'
 
 const CORS_HEADERS = {
@@ -28,22 +28,20 @@ export async function handleCheckout(userId: string, request: Request, env: Env)
     return jsonError(400, 'INVALID_PLAN', 'Plan must be "pro" or "studio".')
   }
 
-  const variantId = plan === 'pro' ? env.LS_PRO_VARIANT_ID : env.LS_STUDIO_VARIANT_ID
+  const productPriceId = plan === 'pro' ? env.POLAR_PRO_PRODUCT_ID : env.POLAR_STUDIO_PRODUCT_ID
   const user = await getOrCreateUser(env.DB, userId)
   const origin = request.headers.get('Origin') ?? 'https://image-to-prompt-17m.pages.dev'
 
   try {
     const url = await createCheckout({
-      apiKey: env.LS_API_KEY,
-      storeId: env.LS_STORE_ID,
-      variantId,
-      customData: {
+      accessToken: env.POLAR_ACCESS_TOKEN,
+      productPriceId,
+      metadata: {
         user_id: userId,
         plan,
-        ...(user.ls_customer_id ? { customer_id: user.ls_customer_id } : {}),
+        ...(user.polar_customer_id ? { customer_id: user.polar_customer_id } : {}),
       },
       successUrl: `${origin}/settings?upgraded=1`,
-      cancelUrl: `${origin}/settings`,
     })
 
     return new Response(JSON.stringify({ success: true, url }), {
