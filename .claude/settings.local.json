@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(wmic logicaldisk:*)",
+      "Bash(npm cache:*)",
+      "Bash(npm run:*)",
+      "Bash(npx wrangler:*)",
+      "Bash(taskkill /F /IM node.exe /T)",
+      "Bash(curl -s -X POST https://image-to-prompt-worker.salah-halli-2018.workers.dev/api/analyze -H \"Content-Type: application/json\" -d '{\"\"image\"\":\"\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI6QAAAABJRU5ErkJggg==\"\",\"\"mimeType\"\":\"\"image/png\"\"}')",
+      "Bash(curl -s -X POST https://image-to-prompt-worker.salah-halli-2018.workers.dev/api/analyze -H \"Content-Type: application/json\" -d '{\"\"image\"\":\"\"iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAABmJLR0QA/wD/AP+gvaeTAAAADUlEQVQI12NgYGD4DwABBAEAWjR/WQAAAABJRU5ErkJggg==\"\",\"\"mimeType\"\":\"\"image/png\"\"}')",
+      "Bash(ls d:/saas/frontend/.env*)"
+    ]
+  }
+}
